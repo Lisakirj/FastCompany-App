@@ -1,4 +1,4 @@
-Pet project 🎉Fast Company: helps you to find company to hang out.
+Pet project 🎉Fast Company: helps you to find a company to hang out.
 
 
 🛠 Technologies:
