@@ -1,4 +1,6 @@
 Pet project 🎉Fast Company: helps you to find company to hang out.
+
+
 🛠 Technologies:
 
 1. CRA
