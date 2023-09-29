@@ -15,4 +15,4 @@ Pet project 🎉Fast Company: helps you to find a company to hang out.
 10. Axios
 11. Firebase
 12. Redux Toolkit
-13. Lodash. Debounce
+13. Lodash.
