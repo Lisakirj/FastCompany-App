@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import professionsService from "../services/profrssions.service";
+import professionsService from "../services/professions.service";
 import isOutDated from "../utils/isOutDated";
 
 const initialState = {
@@ -27,10 +27,11 @@ const professionSlice = createSlice({
     },
   },
 });
-//
+
 const { actions, reducer: professionReducer } = professionSlice;
 const { professionReceived, professionRequest, professionRequestFailed } =
   actions;
+
 //fetch
 export const loadProfession = () => async (dispatch, getState) => {
   const { lastFetch } = getState().profession;
@@ -44,13 +45,12 @@ export const loadProfession = () => async (dispatch, getState) => {
     }
   }
 };
-//getters
+//selectors
 export const getProfessionsList = () => (state) => state.profession.entities;
 export const getProfessionById = (id) => (state) => {
-  if (state.profession.entities) {
-    return state.profession.entities.find((p) => p._id === id);
-  }
-  // return []; //!!
+  return state.profession.entities
+    ? state.profession.entities.find((p) => p._id === id)
+    : [];
 };
 
 export const getProfessionsLoading = () => (state) =>

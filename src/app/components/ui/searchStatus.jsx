@@ -1,24 +1,29 @@
+import PropTypes from "prop-types";
+
 const SearchStatus = ({ length }) => {
   const renderPhrase = (number) => {
     const lastOne = Number(number.toString().slice(-1));
-    if (number > 4 && number < 15) return "человек тусанет";
-    if ([2, 3, 4].indexOf(lastOne) >= 0) return "человека тусанут";
-    if (lastOne === 1) return "человек тусанет";
-    return "человек тусанет";
+    const lastTwo = Number(number.toString().slice(-2));
+    if (lastTwo >= 10 && lastTwo <= 20) return "людей тусане";
+    if ([2, 3, 4].indexOf(lastOne) >= 0) return "людини тусануть";
+    if (lastOne === 1) return "людина тусане";
+    return "людей тусане";
   };
   return (
-    <div className="d-inline-flex p-2 justify-content-center ">
-      <h2 className="align-items-center ">
-        <span
-          className={
-            "badge w-100% " + (length > 0 ? "bg-primary" : "bg-danger")
-          }>
-          {length > 0
-            ? `${length + " " + renderPhrase(length)} с тобой сегодня`
-            : "Никто с тобой не тусанет"}
-        </span>
-      </h2>
-    </div>
+    <h3>
+      Сьогодні ввечері:
+      <span
+        className={
+          "ms-2 badge w-100% " + (length > 0 ? "bg-primary" : "bg-danger")
+        }>
+        {length > 0
+          ? `${length + " " + renderPhrase(length)} з тобою 💃🪩🕺`
+          : "ніхто з тобою не затусить 😟"}
+      </span>
+    </h3>
   );
+};
+SearchStatus.propTypes = {
+  length: PropTypes.number.isRequired,
 };
 export default SearchStatus;

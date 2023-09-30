@@ -26,7 +26,7 @@ const qualitySlice = createSlice({
     },
   },
 });
-//
+
 const { actions, reducer: qualityReducer } = qualitySlice;
 const { qualitiesReceived, qualityRequested, qualityRequestFailed } = actions;
 //fetch
@@ -43,7 +43,7 @@ export const loadQualities = () => async (dispatch, getState) => {
     }
   }
 };
-//getters
+//selectors
 export const getQualitiesList = () => (state) => state.qualities.entities;
 export const getQualityById = (id) => (state) => {
   return state.qualities.entities.find((q) => q._id === id);

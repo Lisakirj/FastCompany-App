@@ -1,12 +1,12 @@
 export const generateAuthError = (message) => {
   switch (message) {
     case "INVALID_PASSWORD":
-      return "Email or password is not correct";
+      return "Email або пароль є невірним";
     case "EMAIL_NOT_FOUND":
-      return "Email or password is not correct";
+      return "Email або пароль є невірним";
     case "EMAIL_EXISTS":
-      return "Email is already exist!";
+      return "Email вже існує!";
     default:
-      return "You entered wrong password or email too many times. Try again later!";
+      return "Ви ввели неправильний пароль або Email занадто багато разів.Спробуйте пізніше!";
   }
 };

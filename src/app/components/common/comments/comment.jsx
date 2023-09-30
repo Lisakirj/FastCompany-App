@@ -22,14 +22,9 @@ const Comment = ({ comment, onDelete }) => {
               height="65"
             />
             <div className="flex-grow-1 flex-shrink-1">
-              <div className="mb-4">
+              <div className="mb-3 ">
                 <div className="d-flex justify-content-between align-items-center">
-                  <p className="mb-1 ">
-                    {user && user.name}{" "}
-                    <span className="small">
-                      - {displayDate(comment.createdAt)}
-                    </span>
-                  </p>
+                  <p className="mb-1 fw-bold">{user && user.name} </p>
                   {currentUserId === comment.userId ? (
                     <button
                       className="btn btn-sm text-primary d-flex align-items-center"
@@ -40,7 +35,10 @@ const Comment = ({ comment, onDelete }) => {
                     ""
                   )}
                 </div>
-                <p className="small mb-0">{comment.content}</p>
+                <p className="small mb-1">{comment.content} </p>
+                <span className="small pt-3  text-primary">
+                  {displayDate(comment.createdAt)}
+                </span>
               </div>
             </div>
           </div>

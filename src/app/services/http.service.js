@@ -1,8 +1,9 @@
 import axios from "axios";
-import { toast } from "react-toastify";
 import configFile from "../config.json";
 import authService from "./auth.service";
 import localStorageService from "./localStorage.service";
+
+import { toast } from "react-toastify";
 
 const http = axios.create({
   baseURL: configFile.apiEndPoint,
@@ -60,7 +61,7 @@ http.interceptors.response.use(
       error.response.status < 500;
     if (!expectedErrors) {
       // console.log(error);
-      toast.error("Something went wrong. Try again later.");
+      toast.error("Щось пішло не так. Спробуйте знову пізніше.");
     }
     return Promise.reject(error);
   }

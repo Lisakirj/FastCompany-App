@@ -6,10 +6,10 @@ const MeetingsCard = ({ completedMeetings }) => {
     <div className="card mb-3">
       <div className="card-body d-flex flex-column justify-content-center text-center">
         <h5 className="card-title">
-          <span>Completed meetings</span>
+          <span className="fw-bold">Completed meetings</span>
         </h5>
 
-        <h1 className="display-1">{completedMeetings}</h1>
+        <h1 className="display-1 text-primary">{completedMeetings}</h1>
       </div>
     </div>
   );

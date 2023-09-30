@@ -1,32 +1,53 @@
 [
-    {
-        "_id": "67rdca3eeb7f6fgeed471198",
-        "name": "Нудила",
-        "color": "primary"
-    },
-    {
-        "_id": "67rdca3eeb7f6fgeed471100",
-        "name": "Странный",
-        "color": "secondary"
-    },
-    {
-        "_id": "67rdca3eeb7f6fgeed4711012",
-        "name": "Троль",
-        "color": "success"
-    },
-    {
-        "_id": "67rdca3eeb7f6fgeed471101",
-        "name": "Алкоголик",
-        "color": "danger"
-    },
-    {
-        "_id": "67rdca3eeb7f6fgeed471102",
-        "name": "Красавчик",
-        "color": "info"
-    },
-    {
-        "_id": "67rdca3eeb7f6fgeed471103",
-        "name": "Неуверенный",
-        "color": "dark"
-    }
+  {
+    "_id": "67rdca3eeb7f6fgeed471198",
+    "name": "Зануда",
+    "color": "primary"
+  },
+  {
+    "_id": "67rdca3eeb7f6fgeed471100",
+    "name": "Дивний",
+    "color": "secondary"
+  },
+  {
+    "_id": "67rdca3eeb7f6fgeed4711012",
+    "name": "Троль",
+    "color": "success"
+  },
+  {
+    "_id": "67rdca3eeb7f6fgeed471101",
+    "name": "Алкоголік",
+    "color": "danger"
+  },
+  {
+    "_id": "67rdca3eeb7f6fgeed471102",
+    "name": "Красунчик",
+    "color": "info"
+  },
+  {
+    "_id": "67rdca3eeb7f6fgeed471103",
+    "name": "Воїн",
+    "color": "dark"
+  },
+  {
+    "_id": "67rdca3eeb7f6fgeed471203",
+    "name": "Інтелектуал",
+    "color": "info"
+  },
+
+  {
+    "_id": "67rdca3eeb7f6fgeed477123",
+    "name": "Конфліктний",
+    "color": "danger"
+  },
+  {
+    "_id": "67rdca3eeb7f6fgeed477923",
+    "name": "Харизматичний",
+    "color": "info"
+  },
+  {
+    "_id": "67rdca3eeb7f6fgeed477103",
+    "name": "Сексуальний",
+    "color": "danger"
+  }
 ]

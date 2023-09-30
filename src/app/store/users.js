@@ -1,7 +1,9 @@
 import { createAction, createSlice } from "@reduxjs/toolkit";
+
 import authService from "../services/auth.service";
 import localStorageService from "../services/localStorage.service";
 import usersService from "../services/users.service";
+
 import { generateAuthError } from "../utils/generateAuthError";
 import getRandomInt from "../utils/getRandomInt";
 import history from "../utils/history";
@@ -85,6 +87,7 @@ const {
   userUpdateSuccessed,
   authRequested,
 } = actions;
+
 //fetch
 export const loadUsers = () => async (dispatch) => {
   dispatch(userRequested());
@@ -135,6 +138,7 @@ export const signUp =
       dispatch(authRequestFailed(error.message));
     }
   };
+
 //signIn
 export const signIn =
   ({ payload, redirect }) =>
@@ -155,12 +159,14 @@ export const signIn =
       } else dispatch(authRequestFailed(error.message));
     }
   };
+
 //logOut
 export const logOut = () => (dispatch) => {
   localStorageService.removeAuthData();
   dispatch(userLoggedOut());
   history.push("/");
 };
+
 //update User
 const userUpdateRequest = createAction("users/userUpdateRequest");
 const userUpdateFailed = createAction("users/updateFailed");
@@ -174,7 +180,8 @@ export const updateUser = (newData) => async (dispatch) => {
     dispatch(userUpdateFailed(error.message));
   }
 };
-//getters
+
+//selectors
 export const getUsers = () => (state) => state.users.entities;
 export const getUserById = (userId) => (state) => {
   if (state.users.entities) {

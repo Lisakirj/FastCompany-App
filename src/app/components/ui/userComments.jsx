@@ -1,11 +1,10 @@
-import { orderBy } from "lodash";
-import React from "react";
-import AddCommentForm from "../common/comments/addCommentForm";
-import CommentsList from "../common/comments/userCommentsList";
-
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
+import { orderBy } from "lodash";
+import { useDispatch, useSelector } from "react-redux";
+
+import AddCommentForm from "../common/comments/addCommentForm";
+import CommentsList from "../common/comments/userCommentsList";
 
 import {
   createComment,
@@ -25,7 +24,7 @@ const Comments = () => {
 
   useEffect(() => {
     dispatch(loadComments(userId));
-  }, [userId]);
+  }, [userId, dispatch]);
 
   const handleDelete = (id) => {
     dispatch(deleteComment(id));

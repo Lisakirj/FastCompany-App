@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useCallback, useMemo, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-import FieldText from "../common/form/fieldText";
+import TextField from "../common/form/textField";
 import { validator } from "../../utils/validator";
 
 import CheckBoxField from "../common/form/checkBoxField";
 import { getError, signIn } from "../../store/users";
-import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 
 const LoginForm = () => {
   const history = useHistory();
@@ -21,26 +20,29 @@ const LoginForm = () => {
   const [errors, setErrors] = useState({});
   const loginError = useSelector(getError());
 
-  const validateConfig = {
-    email: {
-      isRequired: { message: "Email is required!" },
-    },
-    password: {
-      isRequired: {
-        message: "Password is required!",
+  const validateConfig = useMemo(() => {
+    return {
+      email: {
+        isRequired: { message: "Електронна пошта є обов'язкова!" },
       },
-    },
-  };
+      password: {
+        isRequired: {
+          message: "Пароль є обов'язковий!",
+        },
+      },
+    };
+  }, []);
 
-  useEffect(() => {
-    validate();
-  }, [data]);
-
-  const validate = () => {
+  const validate = useCallback(() => {
     const errors = validator(data, validateConfig);
     setErrors(errors);
     return Object.keys(errors).length === 0;
-  };
+  }, [data, validateConfig]);
+
+  useEffect(() => {
+    validate();
+  }, [data, validate]);
+
   const isValid = Object.keys(errors).length === 0;
 
   const handleChange = (target) => {
@@ -61,7 +63,7 @@ const LoginForm = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <FieldText
+      <TextField
         label="Email"
         name="email"
         value={data.email}
@@ -69,9 +71,9 @@ const LoginForm = () => {
         autoComplete=""
         error={errors.email}
       />
-      <FieldText
+      <TextField
         type="password"
-        label="Password"
+        label="Пароль"
         name="password"
         value={data.password}
         onChange={handleChange}
@@ -79,14 +81,14 @@ const LoginForm = () => {
         error={errors.password}
       />
       <CheckBoxField name="stayOn" value={data.stayOn} onChange={handleChange}>
-        Stay in the system?
+        Залишатись в системі?
       </CheckBoxField>
       {loginError && <p className="text-danger">{loginError}</p>}
       <button
         className="btn btn-primary w-100 mx-auto"
         type="submit"
         disabled={!isValid}>
-        Log in
+        Увійти
       </button>
     </form>
   );

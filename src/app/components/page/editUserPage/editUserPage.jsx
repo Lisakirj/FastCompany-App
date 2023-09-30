@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { useStateIfMounted } from "use-state-if-mounted";
+import { useDispatch, useSelector } from "react-redux";
 import history from "../../../utils/history";
 
-import FieldText from "../../common/form/fieldText";
+import TextField from "../../common/form/textField";
 import SelectField from "../../common/form/selectField";
 import RadioField from "../../common/form/radioField";
 import MultiSelectField from "../../common/form/multiSelectField";
+import BackHistoryButton from "../../common/backButton";
 
 import { validator } from "../../../utils/validator";
 
-import BackHistoryButton from "../../common/backButton";
-import { useDispatch, useSelector } from "react-redux";
 import {
   getQualitiesList,
   getQualitiesLoading,
@@ -64,36 +64,45 @@ const EditUserPage = () => {
         ),
       }));
     }
-  }, [professionLoading, qualityLoading, currentUser, data]);
+  }, [
+    professionLoading,
+    qualityLoading,
+    currentUser,
+    data,
+    qualities,
+    setData,
+  ]);
 
   useEffect(() => {
     if (data && isLoading) {
       setIsLoading(false);
     }
-  }, [data]);
+  }, [data, isLoading, setIsLoading]);
 
   //validation
-  const validatorConfig = {
-    name: {
-      isRequired: { message: "Name is required!" },
-      min: {
-        message: "Name must contain at least 3 symbols!",
-        value: 3,
+  const validatorConfig = useMemo(() => {
+    return {
+      name: {
+        isRequired: { message: "Name is required!" },
+        min: {
+          message: "Name must contain at least 3 symbols!",
+          value: 3,
+        },
       },
-    },
-    email: {
-      isRequired: { message: "Email is required!" },
-      isEmail: { message: "Email is not correct!" },
-    },
-  };
+      email: {
+        isRequired: { message: "Email is required!" },
+        isEmail: { message: "Email is not correct!" },
+      },
+    };
+  }, []);
 
-  useEffect(() => validate(), [data]);
-
-  const validate = () => {
+  const validate = useCallback(() => {
     const errors = validator(data, validatorConfig);
     setErrors(errors);
     return Object.keys(errors).length === 0;
-  };
+  }, [data, setErrors, validatorConfig]);
+
+  useEffect(() => validate(), [data, validate]);
 
   const isValid = Object.keys(errors).length === 0;
 
@@ -125,23 +134,23 @@ const EditUserPage = () => {
   };
 
   return (
-    <div className="container mt-5 ">
+    <div className="container my-5 ">
       <BackHistoryButton />
-      <div className="row ">
+      <div className="row  ">
         <div className="col-md-6 offset-md-3 shadow p-4">
           {!isLoading &&
           Object.keys(professions).length > 0 &&
           qualities.length > 0 ? (
             <form onSubmit={handleSubmit}>
-              <FieldText
-                label="Name"
+              <TextField
+                label="Ім'я"
                 name="name"
                 value={data.name}
                 onChange={handleChange}
                 autoComplete=""
                 error={errors.name}
               />
-              <FieldText
+              <TextField
                 label="Email"
                 name="email"
                 value={data.email}
@@ -150,7 +159,7 @@ const EditUserPage = () => {
                 error={errors.email}
               />
               <SelectField
-                label="Choose your profession"
+                label="Обери свою професію"
                 name="profession"
                 onChange={handleChange}
                 value={data.profession}
@@ -167,12 +176,12 @@ const EditUserPage = () => {
                   { name: "Female", value: "female" },
                   { name: "Other", value: "other" },
                 ]}
-                label="Choose your sex"
+                label="Стать"
               />
               <MultiSelectField
                 onChange={handleChange}
                 items={transformData(qualities)}
-                label="Choose qualities"
+                label="Обери свої якості"
                 name="qualities"
                 defaultValue={data.qualities}
               />
@@ -180,7 +189,7 @@ const EditUserPage = () => {
                 type="submit"
                 disabled={!isValid}
                 className="btn btn-primary w-100 mx-auto">
-                Обновить
+                Оновити
               </button>
             </form>
           ) : (

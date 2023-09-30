@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 import LoginForm from "../components/ui/loginForm";
 import Registration from "../components/ui/registrationForm";
@@ -6,42 +7,47 @@ import Registration from "../components/ui/registrationForm";
 const Login = ({ match }) => {
   const type = match.params.type;
   const [formType, setFormType] = useState(
-    type === "Registration" ? type : "Login"
+    type === "registration" ? type : "login"
   );
+
   const toggleFormType = () => {
     setFormType((prevState) =>
-      prevState === "Registration" ? "Login" : "Registration"
+      prevState === "registration" ? "login" : "registration"
     );
   };
   return (
-    <div className="container mt-5  ">
+    <div className="container my-5  ">
       <div className="row">
         <div className="col-md-6 offset-md-3 shadow p-5 pt-4">
-          <h3 className="pb-4 text-center">{formType}</h3>
-          {formType === "Registration" ? (
+          <h3 className="pb-4 text-center">
+            {formType[0].toUpperCase() + formType.slice(1)}
+          </h3>
+          {formType === "registration" ? (
             <>
               <Registration />{" "}
               <p className="mt-3 ">
-                Already have an account?{" "}
-                <a
+                Вже маєте аккаунт?{" "}
+                <Link
+                  to="/login"
                   className="color-primary text-decoration-none"
                   role="button"
                   onClick={toggleFormType}>
-                  Sing In
-                </a>
+                  Увійти
+                </Link>
               </p>
             </>
           ) : (
             <>
               <LoginForm />
               <p className="mt-3">
-                Don't have an account?{" "}
-                <a
+                Не маєте аккаунту?{" "}
+                <Link
+                  to="login/registration"
                   className="color-primary text-decoration-none"
                   role="button"
                   onClick={toggleFormType}>
-                  Sing Up
-                </a>
+                  Зареєструватись
+                </Link>
               </p>
             </>
           )}{" "}

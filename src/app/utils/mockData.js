@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import httpService from "../services/http.service";
+
 import professions from "../mockData/professions.json";
 import qualities from "../mockData/qualities.json";
 import users from "../mockData/users.json";
-import httpService from "../services/http.service";
 
 const useMockData = () => {
   const statusConsts = {
@@ -21,7 +22,7 @@ const useMockData = () => {
     setCount((prevState) => prevState + 1);
   };
 
-  const updateProgress = () => {
+  const updateProgress = useCallback(() => {
     if (count !== 0 && status === statusConsts.idle) {
       setStatus(statusConsts.pending);
     }
@@ -33,10 +34,19 @@ const useMockData = () => {
     if (newProgress === 100) {
       setStatus(statusConsts.successed);
     }
-  };
+  }, [
+    count,
+    progress,
+    status,
+    statusConsts.idle,
+    statusConsts.pending,
+    statusConsts.successed,
+    summaryCount,
+  ]);
+
   useEffect(() => {
     updateProgress();
-  }, [count]);
+  }, [count, updateProgress]);
 
   async function initialize() {
     try {

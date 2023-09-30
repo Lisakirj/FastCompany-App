@@ -8,7 +8,7 @@ const LogOut = () => {
 
   useEffect(() => {
     dispatch(logOut());
-  }, []);
+  }, [dispatch]);
   return <>Loading..</>;
 };
 

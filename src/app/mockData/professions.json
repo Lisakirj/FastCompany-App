@@ -1,8 +1,15 @@
 [
   { "_id": "67rdca3eeb7f6fgeed471818", "name": "Доктор" },
-  { "_id": "67rdca3eeb7f6fgeed471820", "name": "Официант" },
-  { "_id": "67rdca3eeb7f6fgeed471814", "name": "Физик" },
-  { "_id": "67rdca3eeb7f6fgeed471822", "name": "Инженер" },
-  { "_id": "67rdca3eeb7f6fgeed471824", "name": "Актер" },
-  { "_id": "67rdca3eeb7f6fgeed471829", "name": "Повар" }
+  { "_id": "67rdca3eeb7f6fgeed471820", "name": "Офіціант" },
+  { "_id": "67rdca3eeb7f6fgeed471814", "name": "Фізик" },
+  { "_id": "67rdca3eeb7f6fgeed471822", "name": "Інженер" },
+  { "_id": "67rdca3eeb7f6fgeed471829", "name": "Мільярдер" },
+  { "_id": "67rdca3eeb7f6fgeed471827", "name": "Суперсолдат" },
+  { "_id": "67rdca3eeb7f6fgeed471826", "name": "Бог" },
+  { "_id": "67rdca3eeb7f6fgeed471825", "name": "Вчений" },
+  { "_id": "67rdca3eeb7f6fgeed471823", "name": "Шпигун" },
+  { "_id": "67rdca3eeb7f6fgeed471821", "name": "Штучний інтелект" },
+  { "_id": "67rdca3eeb7f6fgeed471817", "name": "Студент" },
+  { "_id": "67rdca3eeb7f6fgeed471816", "name": "Екстрасенс" },
+  { "_id": "67rdca3eeb7f6fgeed471713", "name": "Айтішник" }
 ]

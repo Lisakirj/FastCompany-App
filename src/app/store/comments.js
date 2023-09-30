@@ -91,7 +91,7 @@ export const deleteComment = (id) => async (dispatch) => {
     dispatch(deleteCommentRequesteFailed(error.message));
   }
 };
-//getters
+//selectors
 export const getComments = () => (state) => state.comments.entities;
 export const getIsLoadingStatus = () => (state) => state.comments.isLoading;
 

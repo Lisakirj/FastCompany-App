@@ -1,4 +1,5 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
+
 import qualityReducer from "./qualities";
 import professionReducer from "./profession";
 import usersReducer from "./users";

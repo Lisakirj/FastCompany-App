@@ -1,21 +1,24 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useDispatch, useSelector } from "react-redux";
+
 import { getCurrentUser } from "../../store/users";
 import { getProfessionsLoading, loadProfession } from "../../store/profession";
 
 const UserCard = ({ user }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const currentUserId = useSelector(getCurrentUser());
   const isLoading = useSelector(getProfessionsLoading());
-  const history = useHistory();
+
   const handleClick = () => {
     history.push(history.location.pathname + "/edit");
   };
   useEffect(() => {
     dispatch(loadProfession);
-  }, []);
+  }, [dispatch]);
   if (isLoading) return "Loading...";
   return (
     <div className="card mb-3">
@@ -37,7 +40,7 @@ const UserCard = ({ user }) => {
             height="100"
           />
           <div className="mt-3">
-            <h4>{user.name}</h4>
+            <h4 className="fw-bold">{user.name}</h4>
             <p className="text-secondary mb-1">{user.profession.name}</p>
             <div className="text-muted">
               <i

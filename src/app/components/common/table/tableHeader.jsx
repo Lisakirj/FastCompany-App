@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import centerColumn from "../../../utils/centerColumn";
 
 const TableHeader = ({ onSort, selectedSort, columns }) => {
   const handleSort = (item) => {
@@ -29,6 +30,8 @@ const TableHeader = ({ onSort, selectedSort, columns }) => {
         {Object.keys(columns).map((column) => {
           return (
             <th
+              scope="col-4"
+              className={centerColumn(column)}
               key={column}
               onClick={
                 columns[column].path

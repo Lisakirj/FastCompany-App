@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+li {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+}
+.dropdown-item:hover {
+  color: #495057;
+  font-weight: 500;
+  background-color: #e9ecef !important;
+}
+
+li:hover {
+  background-color: #e9ecef;
+  font-weight: 500;
+}
+li.active {
+  font-weight: 500;
+}

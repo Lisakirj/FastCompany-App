@@ -1,6 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Route, Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import PropTypes from "prop-types";
+
+import { useSelector } from "react-redux";
 import { getisLoggedIn } from "../../store/users";
 
 const ProtectedRoute = ({ component: Component, children, ...rest }) => {
@@ -20,6 +22,13 @@ const ProtectedRoute = ({ component: Component, children, ...rest }) => {
       }}
     />
   );
+};
+
+ProtectedRoute.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
 };
 
 export default ProtectedRoute;

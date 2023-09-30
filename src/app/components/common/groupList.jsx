@@ -11,13 +11,13 @@ const GroupList = ({
   if (!Array.isArray(items)) {
     return (
       <>
-        <ul className="list-group">
+        <ul className="list-group ">
           {Object.keys(items).map((el) => (
             <li
               onClick={() => onItemSelect(items[el])}
               key={items[el][valueProperty]}
               className={
-                "list-group-item" +
+                "list-group-item " +
                 (items[el] === selectedItem ? " active" : "")
               }>
               {items[el][contentProperty]}
@@ -31,11 +31,11 @@ const GroupList = ({
     <ul className="list-group">
       {items.map((el) => (
         <li
-          role="button"
           onClick={() => onItemSelect(el)}
           key={el[valueProperty]}
           className={
-            "list-group-item" + (el === selectedItem ? " active" : "")
+            "list-group-item p-sm-1 p-md-2 px-lg-3 cursor-pointer" +
+            (el === selectedItem ? " active" : "")
           }>
           {el[contentProperty]}
         </li>

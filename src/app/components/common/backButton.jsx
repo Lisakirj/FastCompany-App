@@ -5,8 +5,9 @@ const BackHistoryButton = () => {
   const history = useHistory();
 
   return (
-    <button className="btn btn-primary mt-2" onClick={() => history.goBack()}>
-      <i className="bi bi-caret-left">Back</i>
+    <button className="btn btn-primary my-2" onClick={() => history.goBack()}>
+      <i className="bi bi-caret-left" />
+      <span>Back</span>
     </button>
   );
 };

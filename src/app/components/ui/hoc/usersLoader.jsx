@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getDataStatus, loadUsers } from "../../../store/users";
 import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getDataStatus, loadUsers } from "../../../store/users";
 
 const UsersLoader = ({ children }) => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const UsersLoader = ({ children }) => {
     if (!isUserDataLoaded) {
       return dispatch(loadUsers());
     }
-  }, []);
+  }, [dispatch, isUserDataLoaded]);
 
   if (!isUserDataLoaded) return "Loading...";
   return children;
