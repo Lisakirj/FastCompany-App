@@ -50,7 +50,7 @@ const AddCommentForm = ({ onSubmit }) => {
 
   return (
     <div>
-      <h2>New comment</h2>
+      <h2>Новий коментар</h2>
       <form onSubmit={handleSubmit}>
         <TextAreaField
           value={data.content || ""}

@@ -7,7 +7,7 @@ const QualitiesCard = ({ qualities }) => {
     <div className="card mb-3">
       <div className="card-body d-flex flex-column justify-content-center text-center ">
         <h5 className="card-title">
-          <span className="fw-bold">Qualities</span>
+          <span className="fw-bold">Якості</span>
         </h5>
         <div className="row justify-content-center">
           {qualities &&

@@ -47,7 +47,7 @@ const Comments = () => {
       {sortedComments.length > 0 && (
         <div className="card mb-3">
           <div className="card-body ">
-            <h2>Comments</h2>
+            <h2>Коментарі</h2>
             <hr />
             {!isLoading ? (
               <CommentsList comments={sortedComments} onDelete={handleDelete} />
