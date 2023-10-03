@@ -1,6 +1,6 @@
 Pet project 🎉Fast Company: helps you to find a company to hang out.
 
-🖥️ Demo: <a href='https://fast-company-bceb.onrender.com/'>https://fast-company-bceb.onrender.com/</a>
+🖥️ Demo: <a href='https://fast-company-app-five.vercel.app/'>https://fast-company-app-five.vercel.app/</a>
 
 
 🛠 Technologies:
