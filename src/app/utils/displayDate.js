@@ -18,11 +18,27 @@ export function displayDate(data) {
       }
       return `${date.getHours()}:${date.getMinutes()}`;
     }
-    return `${date.getDate()} ${date.toLocaleString("uk", {
-      month: "long",
-    })}`;
+    return `${date.getDate()} ${getMonthName(date.getMonth())}`;
   }
   return (
     date.getFullYear() + "." + (date.getMonth() + 1) + "." + date.getDate()
   );
+}
+
+function getMonthName(month) {
+  const monthNames = [
+    "січня",
+    "лютого",
+    "березня",
+    "квітня",
+    "травня",
+    "червня",
+    "липня",
+    "серпня",
+    "вересня",
+    "жовтня",
+    "листопада",
+    "грудня",
+  ];
+  return monthNames[month];
 }
