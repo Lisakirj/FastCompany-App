@@ -20,7 +20,7 @@ const UserPage = ({ userId }) => {
         <div className="row gutters-sm mt-2">
           <div className="col-md-4 mb-3">
             <UserCard user={user} />
-            <QualitiesCard qualities={user.qualities ? user.qualities : ""} />
+            <QualitiesCard qualities={user.qualities && user.qualities} />
             <MeetingsCard completedMeetings={user.completedMeetings} />
           </div>
           <div className="col-md-8">
