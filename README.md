@@ -16,5 +16,6 @@ Pet project 🎉Fast Company: helps you to find a company to hang out.
 9. React Router v5
 10. Axios
 11. Firebase
-12. Redux Toolkit
-13. Lodash.
+12. Firebase Authentication
+13. Redux Toolkit
+14. Lodash.
